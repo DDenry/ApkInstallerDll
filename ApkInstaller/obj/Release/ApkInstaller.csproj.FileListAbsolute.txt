@@ -1,0 +1,5 @@
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\bin\Release\ApkInstaller.dll
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\bin\Release\ApkInstaller.pdb
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Release\ApkInstaller.csproj.CoreCompileInputs.cache
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Release\ApkInstaller.dll
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Release\ApkInstaller.pdb

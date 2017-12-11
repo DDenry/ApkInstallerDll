@@ -1,0 +1,6 @@
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\bin\Debug\ApkInstaller.dll
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\bin\Debug\ApkInstaller.pdb
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Debug\ApkInstaller.csproj.CoreCompileInputs.cache
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Debug\ApkInstaller.dll
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Debug\ApkInstaller.pdb
+D:\Project\Code\InstallApkToPhoneDll\ApkInstaller\ApkInstaller\obj\Debug\ApkInstaller.csprojResolveAssemblyReference.cache
