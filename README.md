@@ -4,6 +4,10 @@ File .dll. Support to install apk to connected phone with adb.
 **There's a function in class ApkInstaller named Install2Phone**</br>
 **Here's the construct function:**</br>
 *public int Install2Phone(String adbPath, String apkPath, Boolean toAll = false){}*</br>
+*(adbPath:Your adb path needs specifically to adb.exe)*</br>
+*(apkPath:Your apk path  needs specifically to xxx.apk)*</br>
+*(toAll:It means if install on all connected devices)*</br>
+</br>
 **The return parameter are:**
 
 * NO_APK_FILE = -3;
