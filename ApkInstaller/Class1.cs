@@ -13,24 +13,34 @@ namespace DDenry
         public const int NO_DEVICE = 0;
         public const int INSTALL_START = 1;
 
-        private List<String> devices_list = new List<string>();
+        protected static List<String> devices_list = new List<string>();
 
-        protected Boolean toAll = false;
+        public static List<String> DEVICES_LIST
+        {
+            get
+            {
+                return devices_list;
+            }
+        }
 
-        public Boolean TO_ALL {
-            get {
+        protected static Boolean toAll = false;
+
+        public static Boolean TO_ALL
+        {
+            get
+            {
                 return toAll;
             }
         }
 
 
-        protected int devicesCount = 0;
+        protected static int devicesCount = 0;
 
-        public int DEVICES_COUNT
+        public static int DEVICES_COUNT
         {
             get
             {
-                return this.devicesCount;
+                return devicesCount;
             }
         }
         //
@@ -47,7 +57,11 @@ namespace DDenry
                     FileInfo fileInfo = new FileInfo(adbPath);
                     if (fileInfo.Name.Equals("adb.exe"))
                     {
-                        if (!File.Exists(apkPath)) return NO_APK_FILE;
+                        if (!File.Exists(apkPath))
+                        {
+                            Console.WriteLine("CODE:0,NO_DEVICE");
+                            return NO_APK_FILE;
+                        }
                         else
                         {
                             FileInfo _fileInfo = new FileInfo(apkPath);
@@ -60,7 +74,7 @@ namespace DDenry
                                 if (DEVICES_COUNT > 0)
                                 {
                                     //
-                                    this.toAll = toAll;
+                                    ApkInstaller.toAll = toAll;
                                     //
                                     Process p = new Process();
                                     p.StartInfo.FileName = "cmd.exe";
@@ -84,7 +98,6 @@ namespace DDenry
                                     //向cmd窗口发送输入信息
                                     p.StandardInput.WriteLine("cd /");
                                     p.StandardInput.WriteLine("cd " + adbPath);
-                                    //p.StandardInput.WriteLine("adb devices");
 
                                     //如果选择所有设备
                                     if (toAll)
@@ -95,28 +108,53 @@ namespace DDenry
                                             p.StandardInput.WriteLine(cmd_InstallApkToPhone);
                                         }
                                     }//默认只安装至第一个设备
-                                    else {
+                                    else
+                                    {
                                         cmd_InstallApkToPhone = "adb -s " + devices_list[0] + " install " + apkPath; ;
                                         p.StandardInput.WriteLine(cmd_InstallApkToPhone);
                                     }
                                     p.StandardInput.WriteLine("&exit");
 
+                                    Console.WriteLine("CODE:1,INSTALL_START");
                                     return INSTALL_START;
                                 }
-                                else return NO_DEVICE;
+                                else
+                                {
+                                    Console.WriteLine("CODE:0,NO_DEVICE");
+                                    return NO_DEVICE;
+                                }
                             }
-                            else return NO_APK_FILE;
+                            else
+                            {
+                                Console.WriteLine("CODE:-3,NO_APK_FILE");
+                                return NO_APK_FILE;
+                            }
                         }
                     }
-                    else return NO_ADB_PATH;
+                    else
+                    {
+                        Console.WriteLine("CODE:-2,NO_ADB_PATH");
+                        return NO_ADB_PATH;
+                    }
                 }
-                else return NO_ADB_PATH;
+                else
+                {
+                    Console.WriteLine("CODE:-2,NO_ADB_PATH");
+                    return NO_ADB_PATH;
+                }
             }
-            else return NO_JAVA_ENVIRONMENT;
+            else
+            {
+                Console.WriteLine("CODE:-1,NO_JAVA_ENVIROMENT");
+                return NO_JAVA_ENVIRONMENT;
+            }
         }
         //
         private void CheckAdvices(String adbPath)
         {
+            //
+            devices_list.Clear();
+            devicesCount = 0;
             //
             Process p = new Process();
             p.StartInfo.FileName = "cmd.exe";
